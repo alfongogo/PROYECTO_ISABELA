@@ -1,0 +1,849 @@
+/* Logo pequeño y estético */
+.logo-isabela {
+    height: 48px;
+    width: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgb(231, 69, 129);
+    object-fit: cover;
+    margin: 0 8px 0 0;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.logo-isabela:hover {
+    box-shadow: 0 4px 16px rgba(216,27,96,0.18);
+    transform: scale(1.05) rotate(-2deg);
+}
+/* Animaciones principales */
+@keyframes deslizarArriba {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes deslizarIzquierda {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes deslizarDerecha {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        scale: 0.95;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes rotarEntrada {
+    from {
+        opacity: 0;
+        transform: rotate(-5deg) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes pulso {
+    0%, 100% {
+        box-shadow: 0 4px 6px rgba(216, 27, 96, 0.1);
+    }
+    50% {
+        box-shadow: 0 8px 16px rgba(216, 27, 96, 0.3);
+    }
+}
+
+/* Logo pequeño y estético */
+.logo-isabela {
+    height: 48px;
+    width: rgba(231, 69, 129);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(216,27,96,0.10);
+    object-fit: cover;
+    margin: 0 8px 0 0;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.logo-isabela:hover {
+    box-shadow: 0 4px 16px rgba(216,27,96,0.18);
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* Navegación en header */
+.navbar {
+    padding: 0 !important;
+}
+
+.navbar-nav .nav-link {
+    color: #d81b60 !important;
+    font-weight: 500;
+    padding: 8px 12px !important;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #d81b60;
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff69b4 !important;
+    background-color: #fff0f5;
+}
+
+.navbar-nav .nav-link:hover::before {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border-color: #d81b60 !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23d81b60' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Imagen Hero en sección home */
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(216, 27, 96, 0.25);
+    animation: deslizarDerecha 0.8s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(216, 27, 96, 0.35);
+}
+
+body {
+    background-color: #fff5f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4a2c2a;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #d81b60;
+}
+
+h1 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 3.5rem;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px #4a2c2a;
+    border-bottom: 3px double #d81b60;
+    padding: 15px 20px;
+    margin: 20px 0;
+    transition: all 0.5s ease;
+    animation: deslizarArriba 0.8s ease-out;
+}
+
+h1:hover {
+    color: #ff69b4;
+    transform: scale(1.05);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 20px 0 10px 0;
+    border-bottom: 2px solid #d81b60;
+    padding-bottom: 8px;
+    transition: all 0.4s ease;
+    animation: deslizarIzquierda 0.6s ease-out;
+}
+
+h2:hover {
+    border-bottom-width: 4px;
+    padding-bottom: 6px;
+}
+
+section {
+    border: 2px solid #d81b60;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(216, 27, 96, 0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+}
+
+section.visible {
+    animation: deslizarArriba 0.7s ease-out forwards;
+}
+
+section:hover {
+    box-shadow: 0 12px 24px rgba(216, 27, 96, 0.25);
+    transform: translateY(-5px);
+}
+
+section:hover:not(.visible) {
+    animation: none;
+}
+
+/* Imagen About - Galleta */
+.about-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(216, 27, 96, 0.25);
+    animation: rotarEntrada 0.8s ease-out 0.3s backwards;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    max-width: 320px;
+}
+
+.about-image:hover {
+    transform: rotate(10deg) scale(1.08) translateY(-8px);
+    box-shadow: 0 15px 40px rgba(216, 27, 96, 0.35);
+}
+
+/* Header y Navegación */
+header {
+    background-color: #fef5f7;
+}
+
+.header-content {
+    padding: 20px 15px;
+}
+
+.navbar-brand {
+    color: #d81b60 !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: #d81b60 !important;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff69b4 !important;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #fff0f5;
+    z-index: -1;
+    transition: left 0.3s ease;
+}
+
+nav a:hover::before {
+    left: 0;
+}
+
+.productos-horizontal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        margin: 15px 0;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    section {
+        margin: 10px 5px;
+        padding: 15px;
+    }
+
+    .productos-horizontal {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .product-container {
+        flex-direction: column;
+        gap: 15px;
+        min-height: auto;
+        padding: 12px;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .product-info {
+        width: 100%;
+    }
+
+    .product-container h4 {
+        font-size: 1rem;
+    }
+
+    .product-container .price {
+        font-size: 0.95rem;
+    }
+
+    button, .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    footer {
+        padding: 15px 10px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    section {
+        margin: 8px 0;
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .product-container {
+        padding: 10px;
+    }
+
+    .product-image {
+        height: 150px;
+    }
+
+    .product-container h4 {
+        font-size: 0.95rem;
+    }
+
+    button, .btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+.category-section {
+    margin: 20px 0;
+}
+
+.product-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #f0d0db;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #fdf8fa;
+    transition: all 0.3s ease;
+    min-height: 150px;
+}
+
+.product-container:hover {
+    background-color: #fff0f5;
+    border-color: #d81b60;
+    box-shadow: 0 4px 12px rgba(216, 27, 96, 0.15);
+    transform: translateX(5px);
+}
+
+.product-image {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 8px rgba(216, 27, 96, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.product-container:hover .product-image {
+    transform: scale(1.08);
+}
+
+.product-info {
+    flex: 1;
+    text-align: left;
+}
+
+.product-container h4 {
+    margin: 0 0 8px 0;
+    color: #d81b60;
+    font-size: 1.2rem;
+}
+
+.product-container .price {
+    font-weight: bold;
+    color: #ff69b4;
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
+.product-container .description {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+.item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    background-color: white;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: rotarEntrada 0.6s ease-out;
+    animation-fill-mode: both;
+    opacity: 1;
+}
+
+.item:nth-child(1) { animation-delay: 0.1s; }
+.item:nth-child(2) { animation-delay: 0.2s; }
+.item:nth-child(3) { animation-delay: 0.3s; }
+.item:nth-child(4) { animation-delay: 0.4s; }
+.item:nth-child(5) { animation-delay: 0.5s; }
+.item:nth-child(n+6) { animation-delay: 0.6s; }
+
+.item:hover {
+    transform: translateY(-12px) rotate(2deg);
+    box-shadow: 0 12px 24px rgba(216, 27, 96, 0.3);
+    border-color: #d81b60;
+}
+
+.item img {
+    width: 100%;
+    border-radius: 8px;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.item img:hover {
+    transform: scale(1.1) rotate(-2deg);
+}
+
+.item h3 {
+    margin: 12px 0 8px 0;
+    font-size: 1.2rem;
+    color: #d81b60;
+    transition: color 0.3s;
+}
+
+.item h3:hover {
+    color: #ff69b4;
+}
+
+.item p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 8px 0;
+    transition: color 0.3s;
+}
+
+button, .btn {
+    background-color: #d81b60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before, .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 105, 180, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:hover, .btn:hover {
+    background-color: #ff69b4;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(216, 27, 96, 0.4);
+}
+
+button:active, .btn:active {
+    transform: translateY(-2px);
+}
+
+/* Botones y FAB de WhatsApp */
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Carrito */
+.cart-btn {
+    background-color: #d81b60;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.cart-badge {
+    background: white;
+    color: #d81b60;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 800;
+    margin-left: 6px;
+    font-size: 0.85rem;
+}
+
+.cart-badge.visually-hidden { display: none; }
+.cart-badge.visible { display: inline-block; }
+
+.cart-btn.pulse { animation: cart-pulse 0.9s ease; }
+@keyframes cart-pulse { 0%{ transform: scale(1); } 50%{ transform: scale(1.12); } 100%{ transform: scale(1); } }
+
+.cart-panel {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    width: 340px;
+    max-width: 92%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+    z-index: 2000;
+    transform: translateX(110%);
+    transition: transform 0.28s ease;
+}
+
+.cart-panel.open { transform: translateX(0); }
+
+.cart-panel-header { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-bottom:1px solid #f6dbe8; }
+.cart-items { max-height: 320px; overflow:auto; padding: 8px 12px; }
+.cart-item { display:flex; gap:10px; align-items:center; padding:10px 0; border-bottom:1px solid #f6dbe8; }
+.cart-item img { width:56px; height:56px; object-fit:cover; border-radius:8px; }
+.cart-item .meta { flex:1; }
+.cart-item .meta h5 { margin:0; font-size:0.95rem; color:#4a2c2a; }
+.cart-item .meta p { margin:4px 0 0 0; font-weight:700; color:#ff69b4; }
+.cart-item .controls { display:flex; gap:6px; align-items:center; }
+.cart-panel-footer { padding:12px 16px; border-top:1px solid #f6dbe8; display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.cart-actions .btn + .btn { margin-left:8px; }
+
+/* Corazones animados */
+#heart-container { position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2100; }
+.heart { position: absolute; font-size: 20px; transform-origin: center; animation: float-heart 1.2s ease-out forwards; }
+@keyframes float-heart { 0% { opacity:1; transform: translateY(0) scale(1); } 70% { opacity:0.9; } 100% { opacity:0; transform: translateY(-140px) scale(1.7) rotate(-20deg); } }
+
+/* Estilos para búsqueda en header */
+.search-input {
+    width: 250px;
+    max-width: 40vw;
+    background: #fff0f5;
+    border: 1px solid #ffd8e6;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: #4a2c2a;
+}
+
+/* Preferencias: badge y elementos ocultos */
+.pref-badge {
+    background: #fff8f9;
+    color: #d81b60;
+    border: 1px solid #ffd1e6;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.pref-hidden {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.search-btn {
+    background-color: #d81b60;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 992px) {
+    .search-input { display: none; }
+}
+
+/* Resaltado de búsqueda */
+.search-highlight {
+    box-shadow: 0 10px 30px rgba(216,27,96,0.12);
+    border-color: #d81b60;
+    transform: translateY(-4px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Lista de sugerencias de búsqueda */
+.search-suggestions {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ffd8e6;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    z-index: 1100;
+    max-height: 220px;
+    overflow: auto;
+    padding: 6px 0;
+}
+
+.search-suggestion {
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #4a2c2a;
+    transition: background 0.12s ease;
+    font-weight: 600;
+}
+
+.search-suggestion:hover,
+.search-suggestion.active {
+    background: #fff0f5;
+    color: #d81b60;
+}
+
+.search-suggestion strong {
+    background: rgba(216,27,96,0.06);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebe57;
+}
+
+.whatsapp-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #25D366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    z-index: 1050;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.whatsapp-fab svg {
+    width: 26px;
+    height: 26px;
+    display: block;
+    fill: white;
+}
+
+.whatsapp-fab:focus {
+    outline: 3px solid rgba(37, 211, 102, 0.35);
+    outline-offset: 3px;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.2);
+}
+
+.whatsapp-fab:hover {
+    background-color: #1ebe57;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    animation-play-state: paused;
+} 
+
+/* Animación sutil de flotación para FAB */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+.whatsapp-fab {
+    animation: float 3.5s ease-in-out infinite;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+    border: 0;
+    padding: 0;
+    margin: -1px;
+} 
+
+footer {
+    background: linear-gradient(135deg, #fff6f8 0%, #fff0f3 60%, #ffe8f2 100%);
+    color: #4a2c2a;
+    text-align: center;
+    padding: 22px 18px;
+    margin-top: 30px;
+    border-top: 3px solid #ffd1e6;
+    animation: deslizarArriba 0.8s ease-out;
+}
+
+/* Botón de WhatsApp dentro del footer */
+.footer-whatsapp {
+    display:inline-block;
+    margin-top:10px;
+    background-color:#25D366;
+    color:white;
+    padding:10px 14px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 6px 18px rgba(37,211,102,0.2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.footer-whatsapp:hover { transform: translateY(-3px); box-shadow:0 10px 28px rgba(37,211,102,0.25); }
+
+/* Notificaciones mejoradas */
+.notificacion {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d81b60;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+.notificacion.mostrar {
+    bottom: 20px;
+    animation: deslizarArriba 0.4s ease-out;
+}
+
+/* Tema oscuro */
+body.tema-oscuro {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.tema-oscuro section {
+    background-color: #2a2a2a;
+    border-color: #d81b60;
+}
+
+body.tema-oscuro .item {
+    background-color: #2a2a2a;
+    border-color: #d81b60;
+}
+
+body.tema-oscuro nav a {
+    color: #ff69b4;
+}
+
+/* Animación de entrada para elementos */
+.animacion-entrada {
+    animation: aparecer 0.5s ease-out forwards;
+}

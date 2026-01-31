@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Isabela Repostería | Pasteles y Postres Artesanales</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Principal -->
+    <div class="container-fluid pt-2 pb-1 bg-white shadow-sm sticky-top" style="z-index:1040;">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <a href="#home" class="d-flex align-items-center gap-2 text-decoration-none">
+                <img src="LOGO_ISABELA-Photoroom.png" alt="Isabela Repostería logo" class="logo-isabela">
+                <span class="fw-bold text-dark d-none d-md-inline" style="font-size:1.2rem; letter-spacing:1px;">Isabela Repostería</span>
+            </a>
+            <nav class="navbar navbar-expand-lg navbar-light ms-auto">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav gap-3">
+                        <li class="nav-item"><a class="nav-link fw-500" href="#home" onclick="desplazarA('home')">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link fw-500" href="#about" onclick="desplazarA('about')">Acerca de</a></li>
+                        <li class="nav-item"><a class="nav-link fw-500" href="#menu" onclick="desplazarA('menu')">Menú</a></li>
+                        <li class="nav-item"><a class="nav-link fw-500" href="#contact" onclick="desplazarA('contact')">Contacto</a></li>
+
+                        <!-- Submenú de Categorías -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fw-500" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorías</a>
+                            <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                                <li><button class="dropdown-item" type="button" onclick="desplazarA('cinnamon-rolls')">Roles de Canela</button></li>
+                                <li><button class="dropdown-item" type="button" onclick="desplazarA('cookies')">Galletas Tipo New York</button></li>
+                                <li><button class="dropdown-item" type="button" onclick="desplazarA('butter-cookies')">Galletas de Mantequilla</button></li>
+                                <li><button class="dropdown-item" type="button" onclick="desplazarA('pies')">Tartas y Pays</button></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><button class="dropdown-item" type="button" onclick="desplazarA('menu')">Ver todo el Menú</button></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Búsqueda para móvil dentro del menú colapsado -->
+                    <form id="mobile-search-form" class="d-flex align-items-center mt-3 d-lg-none" onsubmit="buscarProductosHeader(event)" role="search" aria-label="Buscar productos" autocomplete="off">
+                        <div style="position:relative; width:100%;">
+                            <input id="mobile-search-input" type="search" class="search-input form-control" placeholder="Buscar productos..." aria-label="Buscar productos" aria-autocomplete="list" aria-controls="mobile-search-suggestions" aria-expanded="false">
+                            <div id="mobile-search-suggestions" class="search-suggestions" role="listbox" aria-live="polite"></div>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+            <!-- Formulario de búsqueda (visible en escritorio) -->
+            <form id="search-form" class="d-flex align-items-center ms-3 d-none d-lg-flex" onsubmit="buscarProductosHeader(event)" role="search" aria-label="Buscar productos" autocomplete="off">
+                <div style="position:relative">
+                    <input id="search-input" type="search" class="search-input form-control" placeholder="Buscar productos..." aria-label="Buscar productos" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded="false">
+                    <div id="search-suggestions" class="search-suggestions" role="listbox" aria-live="polite"></div>
+                </div>
+                <button class="btn search-btn ms-2" type="submit" aria-label="Buscar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </form>
+
+            <!-- Botón del carrito -->
+            <button id="cart-btn" class="cart-btn ms-3" aria-label="Ver carrito" onclick="toggleCart()">
+                🛒 <span id="cart-count" class="cart-badge visually-hidden">0</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sección Principal -->
+    <main>
+        <!-- Sección Home -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                        <h2>Bienvenido a Isabela Repostería</h2>
+                        <p>Tu destino para pasteles y postres deliciosos. Elaboramos cada creación con ingredientes premium y mucho amor.</p>
+                        <button class="btn" onclick="desplazarA('menu')">Ver Menú</button>
+                    </div>
+                    <div class="col-lg-6 col-md-12 text-center">
+                        <img src="fotos-productos/mascota-bela.png" alt="Isabela Mascota" class="hero-image img-fluid" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección About -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                        <h2>Acerca de Nosotros</h2>
+                        <div class="about-content">
+                            <p>Isabela Repostería nace con la pasión de una madre por crear postres deliciosos. Cada receta es elaborada con ingredientes de la más alta calidad y técnicas tradicionales.</p>
+                            <ul class="features">
+                                <li>✨ Ingredientes 100% frescos</li>
+                                <li>🎂 Recetas tradicionales mejoradas</li>
+                                <li>💝 Hecho con amor y dedicación</li>
+                                <li>🚚 Entregas a domicilio disponibles</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 text-center">
+                        <img src="LOGO_ISABELA-Photoroom.png" alt="Galleta Isabela" class="about-image img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Menú -->
+        <section id="menu" class="menu-section">
+            <h2>Nuestro Menú</h2>
+            <p class="menu-intro">Descubre nuestras deliciosas opciones</p>
+
+            <!-- Categoría: Roles de Canela -->
+            <section id="cinnamon-rolls" class="category-section">
+                <h3>Roles de Canela</h3>
+                <p class="category-description">Esponjosos y deliciosos, perfectos para cualquier ocasión</p>
+                <div class="productos-horizontal">
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('rol-clasico.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Clásico con Glaseado</h4>
+                            <p class="price">$60.00 MXN</p>
+                            <p class="description">Rol de canela tradicional con glaseado cremoso</p>
+                            <button class="btn" onclick="agregarAlCarrito('Rol Clásico')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Rol Clásico')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('rol-redvelvet.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Red velvet</h4>
+                            <p class="price">$70.00 MXN</p>
+                            <p class="description">Rol de canela con sabor a red velvet y glaseado de queso crema</p>
+                            <button class="btn" onclick="agregarAlCarrito('Rol Red Velvet')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Rol Red Velvet')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('fotos-productos/rol-chocolate.jpeg')">
+                            <img src="fotos-productos/rol-chocolate.jpeg" alt="Rol Chocolate" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Chocolate Turin</h4>
+                            <p class="price">$70.00 MXN</p>
+                            <p class="description">Rol de canela con sabor a chocolate turin y glaseado de chocolate</p>
+                            <button class="btn" onclick="agregarAlCarrito('Rol Chocolate')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Rol Chocolate')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('rol-jamon.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Jamon con queso</h4>
+                            <p class="price">$70.00 MXN</p>
+                            <p class="description">Rol de canela con jamón y queso fundido</p>
+                            <button class="btn" onclick="agregarAlCarrito('Rol Jamón')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Rol Jamón')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('rol-bites.jpeg')">
+                            <img src="fotos-productos/rol-bites.jpeg" alt="Roles Bites" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Roles Bites</h4>
+                            <p class="price">$70.00 MXN</p>
+                            <p class="description">Rol de canela en forma de bocaditos</p>
+                            <button class="btn" onclick="agregarAlCarrito('Roles Bites')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Roles Bites')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('rol-cupcake.jpeg')">
+                            <img src="fotos-productos/rol-cupcake.jpeg" alt="Cupcake Rol" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Cupcake Rol</h4>
+                            <p class="price">$70.00 MXN</p>
+                            <p class="description">Rol de canela en forma de cupcake</p>
+                            <button class="btn" onclick="agregarAlCarrito('Cupcake Rol')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Cupcake Rol')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('fotos-productos/rol-pay.jpg')">
+                            <img src="fotos-productos/rol-pay.jpg" alt="Pay de Roles" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Pay de roles</h4>
+                            <p class="price">$70.00 MXN</p>
+                            <p class="description">Rol de canela en forma de pay</p>
+                            <button class="btn" onclick="agregarAlCarrito('Pay de Roles')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Pay de Roles')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categoría: Galletas Tpo New York -->
+            <section id="cookies" class="category-section">
+                <h3>Galletas Tipo New York</h3>
+                 <p class="category-description">Deliciosas galletas artesanales en varios sabores</p>
+                <div class="productos-horizontal">  
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('galleta-chispas.jpeg')">
+                            <img src="fotos-productos/galleta-chispas.jpeg" alt="Galletas Chispas" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Galletas Chispas</h4>
+                            <p class="price">(120gr)$40.00 MXN (65gr)$25.00 MXN</p>
+                            <p class="description"></p>
+                            <button class="btn" onclick="agregarAlCarrito('Galleta Chispas')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Galleta Chispas')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('nutella-ny.jpeg')">
+                            <img src="fotos-productos/nutella-ny.jpeg" alt="Galletas Nutella" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Galletas Nutella</h4>
+                            <p class="price">(120gr)$40.00 MXN (65gr)$25.00 MXN</p>
+                            <p class="description"></p>
+                            <button class="btn" onclick="agregarAlCarrito('Galletas Nutella')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Galletas Nutella')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('red-velvet-ny.jpeg')">
+                            <img src="fotos-productos/red-velvet-ny.jpeg" alt="Galletas Red Velvet" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Galletas Red Velvet</h4>
+                            <p class="price">(120gr)$40.00 MXN (65gr)$25.00 MXN</p>
+                            <p class="description"></p>
+                            <button class="btn" onclick="agregarAlCarrito('Galletas Red Velvet')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Galletas Red Velvet')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('kinder-maxi.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Kinder Maxi</h4>
+                            <p class="price">(120gr)$40.00 MXN (65gr)$25.00 MXN</p>
+                            <p class="description"></p>
+                            <button class="btn" onclick="agregarAlCarrito('Kinder Maxi')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Kinder Maxi')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('galleta-turin.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Galletas Turin</h4>
+                            <p class="price">(120gr)$40.00 MXN (65gr)$25.00 MXN</p>
+                            <p class="description"></p>
+                            <button class="btn" onclick="agregarAlCarrito('Galletas Turin')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Galletas Turin')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('galleta-carlosv.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Galletas Carlos V</h4>
+                            <p class="price">(120gr)$40.00 MXN (65gr)$25.00 MXN</p>
+                            <p class="description"></p>
+                            <button class="btn" onclick="agregarAlCarrito('Galletas Carlos V')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Galletas Carlos V')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('galleta-oreo.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Galletas Chocolate c/Malvavisco </h4>
+                            <p class="price">(120gr)$40.00 MXN (65gr)$25.00 MXN</p>
+                            <p class="description"></p>
+                            <button class="btn" onclick="agregarAlCarrito('Galletas Chocolate c/Malvavisco')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Galletas Chocolate c/Malvavisco')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categoría: Galletas de Mantequilla -->
+            <section id="butter-cookies" class="category-section">
+                <h3>Galletas de Mantequilla</h3>
+                <p class="category-description">Deliciosas galletas artesanales en varios sabores</p>
+                <div class="productos-horizontal">
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('galleta-mantequilla.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Galletas de mantequilla</h4>
+                            <p class="price">10 pz $50 MXN | 30pz $120 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Galletas de mantequilla')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Galletas de mantequilla')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('galleta-choconuez.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Galletas Choconuez</h4>
+                            <p class="price">10 pz $50 MXN | 30pz $120 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Galletas Choconuez')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Galletas Choconuez')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('galleta-redvelvet.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Galletas de Red Velvet</h4>
+                            <p class="price">10 pz $50 MXN | 30pz $120 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Galletas de Red Velvet')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Galletas de Red Velvet')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('galleta-chocolate.jpeg')">
+                            <img src="fotos-productos/galleta-chocolate.jpeg" alt="Galletas de chocolate" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Galletas de extra chocolate</h4>
+                            <p class="price">10 pz $50 MXN | 30pz $120 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Galletas de extra chocolate')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Galletas de extra chocolate')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Categoría: Tartas y Pays -->
+            <section id="pies" class="category-section">
+                <h3>Tartas y Pays</h3>
+                <p class="category-description">Grandes y deliciosas para compartir</p>
+                <div class="productos-horizontal">
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('tarta-chocolate.jpeg')">
+                            <img src="fotos-productos/tarta-chocolate.jpeg" alt="Tarta de chocolate" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Tarta de chocolate</h4>
+                            <p class="price">Grande $50 MXN | Pequeña $30 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Tarta de chocolate')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Tarta de chocolate')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('galleta-choconuez.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Tarta Chocolate Blanco</h4>
+                            <p class="price">Grande $50 MXN | Pequeña $30 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Tarta Chocolate Blanco')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Tarta Chocolate Blanco')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('pay-limon.jpeg')">
+                            <img src="fotos-productos/pay-limon.jpeg" alt="Tarta de Limón" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Tarta de Limon</h4>
+                            <p class="price">Grande $50 MXN | Pequeña $30 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Tarta de Limon')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Tarta de Limon')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('galleta-chocolate.jpg')"></div>
+                        <div class="product-info">
+                            <h4>Pay de Queso</h4>
+                            <p class="price">Grande $50 MXN | Pequeña $30 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Pay de Queso')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Pay de Queso')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('cheesecake-tortuga.jpeg')">
+                            <img src="fotos-productos/cheesecake-tortuga.jpeg" alt="Cheesecake Tortuga" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Cheesecake Tortuga</h4>
+                            <p class="price">Grande $50 MXN | Pequeña $30 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Cheesecake Tortuga')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Cheesecake Tortuga')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('cheesecake-frutos-rojos.jpeg')">
+                            <img src="fotos-productos/cheesecake-frutos-rojos.jpeg" alt="Cheesecake Frutos Rojos" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Cheesecake Frutos Rojos</h4>
+                            <p class="price">Grande $50 MXN | Pequeña $30 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Cheesecake Frutos Rojos')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Cheesecake Frutos Rojos')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image" style="background-image: url('cheesecake-oreo.jpeg')">
+                            <img src="fotos-productos/cheesecake-oreo.jpeg" alt="Cheesecake Oreo" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h4>Cheesecake Oreo</h4>
+                            <p class="price">Grande $50 MXN | Pequeña $30 MXN</p>
+                            <button class="btn" onclick="agregarAlCarrito('Cheesecake Oreo')">Agregar al Carrito</button>
+                            <button class="btn btn-whatsapp" onclick="contactarWhatsApp('Cheesecake Oreo')">Contactar por WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contact" class="contact-section">
+            <h2>Contáctanos</h2>
+            <form onsubmit="return validarFormulario(this)">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Panel del Carrito -->
+    <div id="cart-panel" class="cart-panel" aria-hidden="true">
+        <div class="cart-panel-header">
+            <h4>Tu Carrito</h4>
+            <div>
+                <button class="btn btn-sm" onclick="toggleCart()" aria-label="Cerrar carrito">✕</button>
+            </div>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-panel-footer">
+            <div class="cart-total">Total: <span id="cart-total">$0.00</span></div>
+            <div class="cart-actions">
+                <button class="btn" onclick="checkout()">Pagar</button>
+                <button class="btn btn-secondary" onclick="clearCart()">Vaciar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor para animación de corazones -->
+    <div id="heart-container" aria-hidden="true"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Isabella Repostería</h3>
+                <p>Pasteles y postres deliciosos hecho con amor</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="https://wa.me/5215587703453" target="_blank" rel="noopener">WhatsApp</a></li>
+                </ul>
+                <a class="btn btn-whatsapp footer-whatsapp" href="https://wa.me/5215587703453" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2026 Isabella Repostería. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="#" class="whatsapp-fab" aria-label="Contactar por WhatsApp" title="Contactar por WhatsApp" onclick="contactarWhatsApp(); return false;">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img">
+            <path d="M20.52 3.48A11.8 11.8 0 0 0 12 0C5.37 0 .01 5.37.01 12.02 0 14.21.6 16.29 1.7 18L0 24l6.2-1.62A11.91 11.91 0 0 0 12 24c6.63 0 12-5.37 12-11.98 0-3.2-1.25-6.21-3.48-8.54zm-8.46 17.1c-1.8 0-3.56-.48-5.1-1.39l-.36-.22-3.68.96.98-3.52-.23-.36A9.78 9.78 0 0 1 2.22 12.02C2.22 7.18 6.15 3.25 11 3.25c2.92 0 5.35 1.14 7.25 3.03 1.86 1.86 2.9 4.38 2.9 7.05 0 5.5-4.45 9.3-10.09 9.3zM17.2 15.14c-.28-.14-1.64-.8-1.9-.89-.26-.09-.45-.14-.64.14s-.73.89-.9 1.07c-.16.18-.32.2-.6.07-2.1-.99-3.48-1.76-4.88-3.92-.36-.6.36-.56 1.02-1.86.11-.18.06-.34-.03-.47-.09-.13-.64-1.54-.88-2.12-.23-.55-.47-.48-.64-.49-.17-.01-.37-.01-.57-.01-.19 0-.5.07-.77.34-.28.28-1.07 1.05-1.07 2.55s1.09 2.94 1.24 3.14c.14.2 2.15 3.46 5.22 4.84 3.07 1.38 3.07.92 3.62.86.55-.06 1.79-.72 2.04-1.42.25-.7.25-1.29.18-1.41-.07-.12-.26-.18-.54-.32z"/>
+        </svg>
+        <span class="visually-hidden">Contactar por WhatsApp</span>
+    </a>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
